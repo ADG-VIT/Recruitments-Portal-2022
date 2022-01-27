@@ -131,6 +131,7 @@ h1 {
     line-height: 15px;
   }
   .btn1 {
+    margin-top: 5px !important;
     margin-bottom: 15px !important;
     font-size: 15px !important;
   }
@@ -144,6 +145,7 @@ h1 {
     display: none;
   }
   .landing_page .left {
+    transform: scale(1.1) translateX(70px);
     margin-top: 0;
     width: 100vw;
   }
@@ -168,6 +170,7 @@ h1 {
     line-height: 18px;
   }
   .btn1 {
+    margin-top: 10px !important;
     margin-bottom: 15px !important;
     font-size: 18px !important;
   }
@@ -195,6 +198,7 @@ h1 {
     line-height: 15px;
   }
   .btn1 {
+    margin-top: 10px !important;
     margin-bottom: 15px !important;
     font-size: 16px !important;
   }

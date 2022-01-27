@@ -1,108 +1,212 @@
 .refer-main {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .refer {
-	background: #1f1f1f;
-	height: 85vh;
-	width: 25%;
-	color: #fff;
-	border-radius: 25px;
-	overflow: hidden;
-	padding: 0;
-	margin: 0;
+  background: #1f1f1f;
+  height: 85vh;
+  width: 25%;
+  color: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .top {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	/* overflow: hidden; */
-	margin-bottom: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* overflow: hidden; */
+  margin-bottom: 2%;
 }
 
 .top .svg {
-	width: 100%;
+  width: 100%;
 }
 
 .refer-body {
-	width: 100%;
-	/* height: 90%; */
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	padding-bottom: 3%;
-	padding-top: 3%;
+  width: 100%;
+  /* height: 90%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 .refer-body div {
-	padding-bottom: 5%;
+  padding-bottom: 5%;
 }
 
 p.body-title {
-	font-family: GilroySemiBold;
-	font-size: 18px;
-	line-height: 147.2%;
-	text-align: center;
-	margin: 0;
+  font-family: GilroySemiBold;
+  font-size: 18px;
+  line-height: 147.2%;
+  text-align: center;
+  margin: 0;
 }
 
 p.body-sub {
-	font-family: GilroySemiBold;
-	font-size: 13px;
-	line-height: 147.2%;
-	text-align: center;
-	letter-spacing: 0.02em;
-	color: rgba(255, 255, 255, 0.7);
-	margin: 0;
+  font-family: GilroySemiBold;
+  font-size: 13px;
+  line-height: 147.2%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
 }
 
 .code {
-	background: #2b2b2b;
-	border-radius: 12px;
-	padding-top: 2%;
-	padding-bottom: 2% !important;
-	width: 80%;
-	text-align: center;
-	font-family: GilroySemiBold;
-	font-size: 24px;
-	line-height: 147.2%;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: stretch;
-	align-items: center;
-	margin: 0;
+  background: #2b2b2b;
+  border-radius: 12px;
+  padding-top: 2%;
+  padding-bottom: 2% !important;
+  width: 80%;
+  text-align: center;
+  font-family: GilroySemiBold;
+  font-size: 24px;
+  line-height: 147.2%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  margin: 0;
 }
 
 .code p {
-	/* margin-left: auto; */
-	flex-grow: 9;
-	margin: 0;
+  flex-grow: 9;
+  margin: 0;
 }
 .code button {
-	padding-right: 2%;
+  padding-right: 2%;
 }
 
 .copy-code {
-	font-size: 12px;
-	line-height: 19px;
-	font-family: GilroyMedium;
-	color: #6b27f8;
-	padding-right: 2%;
+  font-size: 12px;
+  line-height: 19px;
+  font-family: GilroyMedium;
+  color: #6b27f8;
+  padding-right: 2%;
   padding-bottom: 0% !important;
-	cursor: pointer;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .body-end {
-	width: 75%;
-	padding-top: 5%;
+  width: 75%;
+  padding-top: 5%;
+}
+
+@media screen and (max-width: 620px) {
+  .refer {
+    background: #1f1f1f;
+    height: 65vh;
+    width: 70%;
+    margin-top: 30px;
+  }
+  p.body-title {
+    font-size: 16px;
+  }
+
+  p.body-sub {
+    font-size: 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .code {
+    padding-top: 2%;
+    padding-bottom: 2% !important;
+    width: 80%;
+    text-align: center;
+    font-family: GilroySemiBold;
+    font-size: 18px;
+    line-height: 147.2%;
+  }
+
+  .copy-code {
+    font-size: 11px !important;
+    line-height: 19px;
+  }
+
+  .body-end {
+    width: 75%;
+    padding-top: 5%;
+  }
+  .refer-body {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 600px) {
+  .refer {
+    background: #1f1f1f;
+    height: 64vh;
+    width: 65%;
+    margin-top: 30px;
+  }
+  p.body-title {
+    font-size: 18px;
+  }
+
+  p.body-sub {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+  }
+  .copy-code {
+    font-size: 12px !important;
+    line-height: 19px;
+  }
+
+  .body-end {
+    width: 75%;
+    padding-top: 5%;
+  }
+  .refer-body {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+  .refer {
+    background: #1f1f1f;
+    margin-top: 30px;
+  }
+  p.body-title {
+    font-size: 16px;
+  }
+  .code {
+    padding-top: 2%;
+    padding-bottom: 2% !important;
+    width: 80%;
+    text-align: center;
+    font-family: GilroySemiBold;
+    font-size: 16px;
+    line-height: 147.2%;
+  }
+
+  p.body-sub {
+    font-size: 10px;
+    letter-spacing: 0.01em;
+  }
+  .copy-code {
+    font-size: 10px !important;
+    line-height: 19px;
+  }
+
+  .body-end {
+    width: 75%;
+    padding-top: 5%;
+  }
+  .refer-body {
+    margin-top: 20px;
+  }
 }

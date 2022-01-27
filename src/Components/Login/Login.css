@@ -271,8 +271,8 @@
     width: 90vw !important;
   }
 
-  input {
-    font-size: 7px !important;
+  .login_page ::placeholder {
+    font-size: 7.5px !important;
   }
 
   .login_page .right {
@@ -280,7 +280,7 @@
   }
 
   .login_page .main_form {
-    width: 50vw;
+    width: 60vw;
     height: 32%;
     padding: 35px 20px 35px 20px;
   }
@@ -320,7 +320,7 @@
   }
 
   .otp_page_login .main_form {
-    width: 55vw;
+    width: 70vw;
     height: 34%;
     padding: 30px 20px 35px 20px;
   }
