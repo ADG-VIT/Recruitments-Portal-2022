@@ -5,3 +5,20 @@
 .tobeblack {
   color: #1f1f1f;
 }
+
+@media screen and (max-width: 620px) {
+}
+
+@media screen and (max-width: 950px) and (min-width: 600px) {
+  .navbar {
+    padding: 13% 10%;
+  }
+
+  img {
+    width: 120px;
+    height: 46.18px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+}

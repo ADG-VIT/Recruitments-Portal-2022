@@ -3,10 +3,12 @@
 .btn1 {
   width: 82% !important;
   margin-bottom: 20px;
+  font-size: 18px !important;
 }
 
 .btn2 {
   width: 82% !important;
+  font-size: 18px !important;
 }
 
 .landing_page {
@@ -35,6 +37,19 @@
   object-fit: cover;
   width: 55vw;
 }
+
+/* .hi {
+  animation: move 10s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+} */
 
 .landing_page .info {
   width: 35vw;
@@ -85,4 +100,109 @@ h1 {
   letter-spacing: 0.5px;
   /* Text/Secondary */
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 620px) {
+  .landing_page .right {
+    display: none;
+  }
+  .landing_page .left {
+    margin-top: 0;
+    width: 100vw;
+  }
+  .landing_page .info {
+    width: 80vw;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .heading1 {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+  }
+  .portal_img {
+    width: 30vw;
+  }
+  .para {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .btn1 {
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+    font-size: 15px !important;
+  }
+  .btn2 {
+    font-size: 15px !important;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 600px) {
+  .landing_page .right {
+    display: none;
+  }
+  .landing_page .left {
+    transform: scale(1.1) translateX(70px);
+    margin-top: 0;
+    width: 100vw;
+  }
+  .landing_page .info {
+    width: 80vw;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .heading1 {
+    font-size: 58px;
+    line-height: 60px;
+    letter-spacing: 0.5px;
+  }
+  .portal_img {
+    width: 18vw;
+  }
+  .para {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .btn1 {
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    font-size: 18px !important;
+  }
+  .btn2 {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+  h1 {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .heading1 {
+    font-size: 44px;
+    line-height: 50px;
+    letter-spacing: 0.5px;
+  }
+  .portal_img {
+    width: 12vw;
+  }
+  .para {
+    font-size: 14px;
+    line-height: 15px;
+  }
+  .btn1 {
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    font-size: 16px !important;
+  }
+  .btn2 {
+    font-size: 16px !important;
+  }
 }

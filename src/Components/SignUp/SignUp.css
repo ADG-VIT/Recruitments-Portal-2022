@@ -36,13 +36,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 45px 40px 45px 40px;
+  padding: 55px 40px 55px 40px;
   background: #1f1f1f;
   border-radius: 25px;
 }
 
 .signup_page .btn1 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 !important;
   width: 100% !important;
 }
@@ -149,14 +149,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 35px 40px 35px;
+  padding: 50px 35px 50px 35px;
   background: #1f1f1f;
   border-radius: 25px;
 }
 
 .otp_page .btn1 {
   margin: 0 !important;
-  font-size: 18px;
+  font-size: 16px;
   width: 100% !important;
 }
 .otp_page .heading {
@@ -256,4 +256,252 @@
   color: #ffffff;
   margin: 0;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 620px) {
+  .signup_page .left {
+    display: none;
+  }
+  .signup_page .right {
+    margin-top: 30px !important;
+    width: 90vw;
+  }
+  .signup_page .main_form {
+    width: 65vw;
+    height: 53%;
+    padding: 35px 20px 35px 20px;
+  }
+
+  .signup_page .btn1 {
+    margin-top: 5px !important;
+    font-size: 13px !important;
+  }
+
+  .signup_page .heading {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .signup_page .para {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .signup_page .bottom {
+    font-size: 10px;
+    line-height: 25px;
+    letter-spacing: 0.55px;
+    margin-top: 6px;
+  }
+
+  .signup_page .form {
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* OTP PAGE */
+
+  .otp_page .left {
+    display: none;
+  }
+
+  .otp_page .right {
+    margin-top: 30px !important;
+    width: 90vw !important;
+  }
+
+  .otp_page .main_form {
+    width: 70vw;
+    height: 34%;
+    padding: 30px 20px 35px 20px;
+  }
+
+  .otp_page .btn1 {
+    font-size: 13px !important;
+  }
+  .otp_page .heading {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .otp_page .para {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .otp_page .bottom {
+    font-size: 10px;
+    line-height: 22px;
+    margin-top: 6px;
+  }
+
+  .otp_page .tosignup {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  .otp_page .form {
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+
+  .otp_page .otp_para {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 600px) {
+  .signup_page .left {
+    display: none;
+  }
+  .signup_page .right {
+    margin-top: 20px !important;
+    width: 90vw;
+  }
+  .signup_page .main_form {
+    width: 55vw;
+    height: 46%;
+    padding: 30px 30px 30px 30px;
+  }
+
+  .signup_page .btn1 {
+    margin-top: 8px !important;
+    font-size: 14px !important;
+  }
+
+  .signup_page .heading {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .signup_page .para {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .signup_page .bottom {
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 0.55px;
+    margin-top: 6px;
+  }
+
+  .signup_page .form {
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+  /* OTP PAGE */
+
+  .otp_page .left {
+    display: none;
+  }
+
+  .otp_page .right {
+    margin-top: 20px !important;
+    width: 90vw !important;
+  }
+
+  .otp_page .main_form {
+    width: 55vw;
+    height: 28%;
+    padding: 30px 20px 35px 20px;
+  }
+
+  .otp_page .btn1 {
+    font-size: 14px !important;
+  }
+  .otp_page .heading {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .otp_page .para {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .otp_page .bottom {
+    font-size: 12px;
+    line-height: 25px;
+    margin-top: 8px;
+  }
+
+  .otp_page .tosignup {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .otp_page .form {
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+
+  .otp_page .otp_para {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+  .signup_page .btn1 {
+    margin-top: 5px !important;
+    font-size: 13px !important;
+  }
+
+  .signup_page .heading {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .signup_page .para {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .signup_page .bottom {
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 0.55px;
+    margin-top: 6px;
+  }
+
+  .signup_page .form {
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+  /* OTP PAGE */
+  .otp_page .btn1 {
+    font-size: 13px !important;
+  }
+  .otp_page .heading {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .otp_page .para {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .otp_page .bottom {
+    font-size: 12px;
+    line-height: 25px;
+    margin-top: 8px;
+  }
+
+  .otp_page .tosignup {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .otp_page .form {
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+
+  .otp_page .otp_para {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
 }

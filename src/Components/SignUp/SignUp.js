@@ -127,6 +127,7 @@ function SignUp() {
                   heading="Name"
                   placeholder="Enter the name"
                   optional =""
+                  type="text"
                 />
                 <Input
                   setnull={setReg_no}
@@ -135,6 +136,7 @@ function SignUp() {
                   heading="Registration Number"
                   optional =""
                   placeholder="Enter the Reg Number"
+                  type="text"
                 />
                 <Input
                   setnull={setEmail}
@@ -143,6 +145,7 @@ function SignUp() {
                   heading="VIT Email ID"
                   placeholder="Enter the VIT Email ID"
                   optional =""
+                  type="email"
                 />
                 <Input
                   setnull={setPh}
@@ -151,6 +154,7 @@ function SignUp() {
                   change={handleChange4}
                   heading="Phone Number"
                   placeholder="Enter the Ph Number with Country Code"
+                  type="tel"
                 />
               </form>
               <Button

@@ -5,13 +5,40 @@
   position: fixed;
   display: flex;
   background-color: transparent;
-  padding-bottom: 15px;
   z-index: 100;
   margin: 0;
   padding: 3% 5%;
 }
 
 img {
-  width: 123px;
+  width: 8vw;
   height: 46.18px;
+}
+
+@media screen and (max-width: 620px) {
+  .navbar {
+    padding: 13% 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  img {
+    width: 100px;
+    height: 36.18px;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 600px) {
+  .navbar {
+    padding: 13% 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .navbar img {
+    transform: scale(1.3);
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
 }

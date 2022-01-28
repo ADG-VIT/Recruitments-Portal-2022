@@ -1,9 +1,34 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './TextArea.css';
+import cross from "../images/cross.svg";
+
 function TextArea(props) {
-    return (
+  const [show, setShow] = useState(false);
+
+  
+  return (
         <>
-        <textarea className="textarea input" placeholder="Enter your text here..." onChange={(e) => { props.change(e) }}></textarea>
+        <label htmlFor={props.heading}>{props.heading}<span className="optional">{props.optional}</span></label>
+        <div className="enclosing_div">
+          <textarea           
+          onFocus={() => {
+            setShow(true);
+          }}
+          onBlur={() => {
+            setShow(false);
+          }}
+          className="textarea input" placeholder="Enter your text here..." onChange={(e) => { props.change(e) }}></textarea>
+          {show && (
+            <img
+              className="cross"
+              alt="cross"
+              onClick={(e)=>{
+                console.log("Hi")
+                e.preventDefault();}}
+              src={cross}
+            />
+          )}
+        </div>
         </>
   )
 }

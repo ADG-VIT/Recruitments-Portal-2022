@@ -4,6 +4,7 @@ import React from "react";
 import "./LandingPage.css";
 import { useNavigate } from "react-router-dom";
 import Portal from "../images/Portal.svg";
+import Button from "../Inputs/Button";
 import back_img from "../images/back_img.svg";
 
 function LandingPage() {
@@ -19,25 +20,24 @@ function LandingPage() {
           <p className="para">
             Tagline Goes Here, hopefully Marketing team delivers
           </p>
-          <button
-            className="btn1"
-            onClick={() => {
-              navigate("/SignUp");
-            }}
-          >
-            Sign Up
-          </button>
-          <button
-            className="btn2"
-            onClick={() => {
-              navigate("/Login");
-            }}
-          >
-            Log In
-          </button>
+          <Button
+                class="btn1"
+                ClickFunction={() => {
+                  navigate("/SignUp");
+                }}
+                heading="Create an Account"
+              />
+            <Button
+                class="btn2"
+                ClickFunction={() => {
+                  navigate("/Login");
+                }}
+                heading="Login"
+              />
         </div>
       </div>
       <div className="right">
+        {/* <p className="hi">hi</p> */}
         <img alt="background" src={back_img} />
       </div>
     </div>

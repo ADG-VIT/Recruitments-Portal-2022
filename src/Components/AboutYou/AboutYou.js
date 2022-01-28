@@ -34,7 +34,7 @@ function SignUp() {
             <h1 className="heading">Tell us about yourself</h1>
             <p className="para">Almost Done! Help Us Know you Better</p>
             <form className="form">
-            <TextArea val={bio} change={handleChangebio} />
+            <TextArea heading="Bio" optional = "" val={bio} change={handleChangebio} />
                 <Input
                   setnull={setprofile}
                   val={profile}

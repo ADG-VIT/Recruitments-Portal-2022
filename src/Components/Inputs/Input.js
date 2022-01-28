@@ -26,7 +26,7 @@ function Input(props) {
             props.change(e);
           }}
           value={props.val}
-          type="text"
+          type={props.type}
           id={props.heading}
           name={props.heading}
           placeholder={props.placeholder}
