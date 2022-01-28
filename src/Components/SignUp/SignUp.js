@@ -32,10 +32,41 @@ function SignUp() {
     setPh(e.target.value);
   };
 
-  const handleClick = () => {
-    setIsOtp(1);
+  const phoneValidation = (e) => {
+    const regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    if (regex.test(ph)) {
+      return true;
+    }
+    return false;
   };
-
+  const emailValidation = (e) => {
+    const regex = /^[A-Za-z0-9._%+-]+@vitstudent.ac.in$/;
+    if (regex.test(email)) {
+      return true;
+    }
+    return false;
+  }
+  const regValidation = (e) => {
+    const regex = /^[1-9][0-9]{2}[A-Z]{2}[0-9]{3}$/;
+    if (regex.test(reg_no)) {
+      return true;
+    }
+    return false;
+  }
+  const handleClick = () => {
+    if (name === "" || reg_no === "" || email === "" || ph === "") {
+      console.log("empty");
+    } else if (!phoneValidation(ph)) {
+      console.log("invalid ph");
+    } else if(!emailValidation(email)){
+      console.log("invalid email");
+    } else if (!regValidation(reg_no)) {
+      console.log("invalid reg");
+    }
+    else {
+      //axios
+    }
+  };
   return (
     <>
       <Navbar navbar={0} />

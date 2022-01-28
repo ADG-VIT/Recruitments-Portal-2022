@@ -30,6 +30,7 @@ function Input(props) {
           id={props.heading}
           name={props.heading}
           placeholder={props.placeholder}
+          required
         />
         {show && (
           <img
