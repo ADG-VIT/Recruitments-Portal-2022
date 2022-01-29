@@ -4,7 +4,7 @@ import { ReactComponent as HeadSVG } from "./head.svg";
 import { ReactComponent as CopySVG } from "./copy.svg";
 
 function Referral() {
-  return (
+	return (
 		<div className="refer-main">
 			<div className="refer">
 				<div className="top">
@@ -36,11 +36,11 @@ function Referral() {
 					<div className="body-end">
 						<p className="body-title">How it Works?</p>
 						<p className="body-sub">
-							Share your Referral Code with your friends to get
+							Share the Referral Code with your friends to get
 							them extra time and vice versa
 							<br /> <br />
 							Top 5 people whose code gets used the most will get
-							an exclusive chance to speedtrack their Recruitments
+							an exclusive chance to speedtrack their Recruitment
 							Process
 						</p>
 					</div>
@@ -48,7 +48,7 @@ function Referral() {
 				</div>
 			</div>
 		</div>
-  );
+	);
 }
 
 export default Referral;

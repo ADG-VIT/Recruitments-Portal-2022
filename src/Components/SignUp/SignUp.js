@@ -16,10 +16,10 @@ function SignUp() {
   const [isOtp, setIsOtp] = useState(0);
   const { enqueueSnackbar }  = useSnackbar();
 
-  const [name, setName] = useState("");
-  const [reg_no, setReg_no] = useState("");
-  const [email, setEmail] = useState("");
-  const [ph, setPh] = useState("");
+	const [name, setName] = useState("");
+	const [reg_no, setReg_no] = useState("");
+	const [email, setEmail] = useState("");
+	const [ph, setPh] = useState("");
 
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
