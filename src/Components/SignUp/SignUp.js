@@ -8,17 +8,30 @@ import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import Input from "../Inputs/Input";
 import Otp from "../Otp/Otp.js";
-
+import axios from "axios";
+import { useSnackbar } from "notistack";
 
 function SignUp() {
   const navigate = useNavigate();
   const [isOtp, setIsOtp] = useState(0);
+  const { enqueueSnackbar }  = useSnackbar();
 
   const [name, setName] = useState("");
   const [reg_no, setReg_no] = useState("");
   const [email, setEmail] = useState("");
   const [ph, setPh] = useState("");
 
+  const showErrorSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "error",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
   const handleChange1 = (e) => {
     setName(e.target.value);
   };
@@ -47,7 +60,7 @@ function SignUp() {
     return false;
   }
   const regValidation = (e) => {
-    const regex = /^[1-9][0-9]{2}[A-Z]{2}[0-9]{3}$/;
+    const regex = /^21/;
     if (regex.test(reg_no)) {
       return true;
     }
@@ -55,16 +68,37 @@ function SignUp() {
   }
   const handleClick = () => {
     if (name === "" || reg_no === "" || email === "" || ph === "") {
-      console.log("empty");
+      showErrorSnack("Please fill all the fields");
     } else if (!phoneValidation(ph)) {
-      console.log("invalid ph");
+      showErrorSnack("Please enter a valid phone number with country code");
     } else if(!emailValidation(email)){
-      console.log("invalid email");
+      showErrorSnack("Please enter a valid student email");
     } else if (!regValidation(reg_no)) {
-      console.log("invalid reg");
+      showErrorSnack("Please enter a valid registration number");
     }
     else {
-      //axios
+      axios.post("https://damp-river-26250.herokuapp.com/signup", {
+        name: name,
+        regno: reg_no,
+        email: email,
+        phone: ph,
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.data.success) {
+            setIsOtp(1);
+          }
+        }
+      )
+        .catch((err) => {
+          console.log(err);
+        }
+      );
+      
     }
   };
   return (
@@ -153,7 +187,7 @@ function SignUp() {
                   val={ph}
                   change={handleChange4}
                   heading="Phone Number"
-                  placeholder="Enter the Ph Number with Country Code"
+                  placeholder="Enter the Ph Number with Country Code (+91 ..)"
                   type="tel"
                 />
               </form>
