@@ -7,19 +7,65 @@ import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import Input from "../Inputs/Input";
 import Otp from "../Otp/Otp.js";
+import axios from "axios";
+import { useSnackbar } from "notistack";
 
 function Login() {
   const [isOtp, setIsOtp] = useState(0);
   const [reg_no, setReg_no] = useState("");
+  const { enqueueSnackbar }  = useSnackbar();
 
+  const showErrorSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "error",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
   const handleChange1 = (e) => {
     setReg_no(e.target.value);
   };
-
+  const regValidation = (e) => {
+    const regex = /^21/;
+    if (regex.test(reg_no)) {
+      return true;
+    }
+    return false;
+  }
   function handleClick() {
-    setIsOtp(1);
+    if ( reg_no === "" ) {
+      showErrorSnack("Please fill all the fields");
+    } else if (!regValidation(reg_no)) {
+      showErrorSnack("Please enter a valid registration number");
+    }
+    else {
+      axios.post("https://damp-river-26250.herokuapp.com/login", {
+        regno: reg_no,
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.data.success) {
+            setIsOtp(1);
+          }
+        }
+      )
+        .catch((err) => {
+          console.log(err);
+        }
+      );
+      
+    }
   }
 
+  
 
   const navigate = useNavigate();
 
@@ -78,7 +124,7 @@ function Login() {
                     val={reg_no}
                     change={handleChange1}
                     heading="Registration Number"
-                    placeholder="Enter your Registration Number. Eg: 20BCE0001"
+                    placeholder="Enter your Registration Number. Eg: 21BCE0001"
                     optional =""
                 />
               </form>
