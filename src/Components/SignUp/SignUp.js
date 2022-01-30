@@ -14,12 +14,12 @@ import { useSnackbar } from "notistack";
 function SignUp() {
   const navigate = useNavigate();
   const [isOtp, setIsOtp] = useState(0);
-  const { enqueueSnackbar }  = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
-	const [name, setName] = useState("");
-	const [reg_no, setReg_no] = useState("");
-	const [email, setEmail] = useState("");
-	const [ph, setPh] = useState("");
+  const [name, setName] = useState("");
+  const [reg_no, setReg_no] = useState("");
+  const [email, setEmail] = useState("");
+  const [ph, setPh] = useState("");
 
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -58,47 +58,44 @@ function SignUp() {
       return true;
     }
     return false;
-  }
+  };
   const regValidation = (e) => {
     const regex = /^21/;
     if (regex.test(reg_no)) {
       return true;
     }
     return false;
-  }
+  };
   const handleClick = () => {
     if (name === "" || reg_no === "" || email === "" || ph === "") {
       showErrorSnack("Please fill all the fields");
-    } else if (!phoneValidation(ph)) {
-      showErrorSnack("Please enter a valid phone number with country code");
-    } else if(!emailValidation(email)){
+    } else if (!emailValidation(email)) {
       showErrorSnack("Please enter a valid student email");
-    } else if (!regValidation(reg_no)) {
-      showErrorSnack("Please enter a valid registration number");
-    }
-    else {
-      axios.post("https://damp-river-26250.herokuapp.com/signup", {
-        name: name,
-        regno: reg_no,
-        email: email,
-        phone: ph,
-      }, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+    } else {
+      axios
+        .post(
+          "https://damp-river-26250.herokuapp.com/user/signup",
+          {
+            name: name,
+            regno: reg_no,
+            email: email,
+            phone: ph,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((res) => {
           console.log(res);
           if (res.data.success) {
             setIsOtp(1);
           }
-        }
-      )
+        })
         .catch((err) => {
           console.log(err);
-        }
-      );
-      
+        });
     }
   };
   return (
@@ -116,7 +113,7 @@ function SignUp() {
                 Check your VIT Mail Inbox or Spam Folder for the OTP
               </p>
               <form className="form">
-                <p className = "otp_para">OTP</p>
+                <p className="otp_para">OTP</p>
                 <Otp />
                 <p className="bottom">
                   Didn’t recieve OTP?{" "}
@@ -160,7 +157,7 @@ function SignUp() {
                   change={handleChange1}
                   heading="Name"
                   placeholder="Enter the name"
-                  optional =""
+                  optional=""
                   type="text"
                 />
                 <Input
@@ -168,7 +165,7 @@ function SignUp() {
                   val={reg_no}
                   change={handleChange2}
                   heading="Registration Number"
-                  optional =""
+                  optional=""
                   placeholder="Enter the Reg Number"
                   type="text"
                 />
@@ -178,12 +175,12 @@ function SignUp() {
                   change={handleChange3}
                   heading="VIT Email ID"
                   placeholder="Enter the VIT Email ID"
-                  optional =""
+                  optional=""
                   type="email"
                 />
                 <Input
                   setnull={setPh}
-                  optional =""
+                  optional=""
                   val={ph}
                   change={handleChange4}
                   heading="Phone Number"
