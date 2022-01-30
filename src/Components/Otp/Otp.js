@@ -1,13 +1,13 @@
 import React from 'react';
 import OtpInput from 'react-otp-input';
 import './Otp.css'
-function Otp() {
+function Otp(props) {
     const [otp, setOtp] = React.useState('');
     return (
         <div className='otp'>
             <OtpInput
-        value={otp}
-        onChange={setOtp}
+        value={props.val}
+        onChange={(e) => props.change(e)}
         numInputs={6}
         separator={<span className="tobeblack">-</span>}
                 className='otp-input'

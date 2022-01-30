@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import backImg from "../images/back_img.svg";
@@ -9,15 +9,33 @@ import Input from "../Inputs/Input";
 import Otp from "../Otp/Otp.js";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import OtpTimer from "otp-timer";
+// import Countdown from "react-countdown";
+import Count from "react-countdown";
 
 function Login() {
   const [isOtp, setIsOtp] = useState(0);
   const [reg_no, setReg_no] = useState("");
-  const { enqueueSnackbar }  = useSnackbar();
-
+  const { enqueueSnackbar } = useSnackbar();
+  const [otp, setOtp] = React.useState('');
+console.log(otp);
+  // const [minutes, setMinutes] = useState(0);
+  // const [seconds, setSeconds] = useState(30);
+  // console.log(minutes, seconds);
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
       variant: "error",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
+  const showSuccessSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "success",
       preventDuplicate: true,
       autoHideDuration: 2000,
       anchorOrigin: {
@@ -35,40 +53,112 @@ function Login() {
       return true;
     }
     return false;
-  }
-  function handleClick() {
-    if ( reg_no === "" ) {
-      showErrorSnack("Please fill all the fields");
-    } else if (!regValidation(reg_no)) {
-      showErrorSnack("Please enter a valid registration number");
-    }
-    else {
-      axios.post("https://damp-river-26250.herokuapp.com/login", {
+  };
+  function handleOtp(){
+    axios
+    .post(
+      "https://adg-recruitments.herokuapp.com/user/verifyOTP",
+      {
         regno: reg_no,
-      }, {
+        otp: otp,
+      },
+      {
         headers: {
           "Content-Type": "application/json",
         },
-      })
+      }
+    )
+    .then((res) => {
+      console.log(res);
+      if (res.data.message) {
+        showSuccessSnack(res.data.message);
+        const token = res.data.Token;
+        localStorage.setItem("token", token);
+        setIsOtp(0);
+        window.location.href = "/aboutyou"
+      }
+    })
+    .catch((err) => {
+      console.log(err.response.data.message);
+      showErrorSnack(err.response.data.message);
+    });
+  }
+  function handleClick() {
+    if (reg_no === "") {
+      showErrorSnack("Please fill all the fields");
+    } else {
+      axios
+        .post(
+          "https://adg-recruitments.herokuapp.com/user/login",
+          {
+            regno: reg_no,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((res) => {
           console.log(res);
-          if (res.data.success) {
+          if (res.data.message) {
+            showSuccessSnack(res.data.message);
+            console.log(res.data.message);
             setIsOtp(1);
           }
-        }
-      )
+        })
         .catch((err) => {
-          console.log(err);
-        }
-      );
-      
+          console.log(err.response.data.message);
+          showErrorSnack(err.response.data.message);
+        });
     }
   }
 
-  
+  // useEffect(() => {
+  //   let myInterval = setInterval(() => {
+  //     if (seconds > 0) {
+  //       setSeconds(seconds - 1);
+  //     }
+  //     if (seconds === 0) {
+  //       if (minutes === 0) {
+  //         clearInterval(myInterval);
+  //       } else {
+  //         setMinutes(minutes - 1);
+  //         setSeconds(59);
+  //       }
+  //     }
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(myInterval);
+  //   };
+  // }, [isOtp]);
 
   const navigate = useNavigate();
-
+  const Completionist = () => (
+    <span className="resendOTP" onClick={() => {}}>
+      {" "}
+      Resend OTP{" "}
+    </span>
+  );
+  const renderer = ({ minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    }
+    const addZero = (num) => {
+      let time = num.toString();
+      if (time.length === 1) {
+        time = `0${time}`;
+      }
+      return time;
+    };
+    return (
+      <span>
+        {addZero(minutes)}
+        <span className=" mx-2">:</span>
+        {addZero(seconds)}
+      </span>
+    );
+  };
   return (
     <>
       <Navbar navbar={0} />
@@ -81,20 +171,32 @@ function Login() {
                 Check your VIT Mail Inbox or Spam Folder for the OTP
               </p>
               <form className="form">
-              <p className = "otp_para">OTP</p>
-                <Otp />
+                <p className="otp_para">OTP</p>
+                <Otp val={otp} change={setOtp} />
                 <p className="bottom">
                   Didn’t recieve OTP?{" "}
-                  <span className="resendOTP" onClick={() => {}}>
-                    {" "}
-                    Resend OTP{" "}
-                  </span>
+                  {/* {minutes === 0 && seconds === 0 ? (
+                    <span className="resendOTP" onClick={() => {}}>
+                      {" "}
+                      Resend OTP{" "}
+                    </span>
+                  ) : (
+                    <h1>
+                      {" "}
+                      {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                    </h1>
+                  )} */}
+                  <Count
+                    date={Date.now() + 5000}
+                    renderer={renderer}
+                    intervalDelay={0}
+                  />
                 </p>
               </form>
               <Button
                 class="btn1"
                 ClickFunction={() => {
-                  navigate("/aboutyou");
+                  handleOtp();
                 }}
                 heading="Verify OTP"
               />
@@ -119,13 +221,13 @@ function Login() {
               <h1 className="heading">Login</h1>
               <p className="para">Login with your VIT Registration Number</p>
               <form className="form">
-                  <Input
-                    setnull={setReg_no}
-                    val={reg_no}
-                    change={handleChange1}
-                    heading="Registration Number"
-                    placeholder="Enter your Registration Number. Eg: 21BCE0001"
-                    optional =""
+                <Input
+                  setnull={setReg_no}
+                  val={reg_no}
+                  change={handleChange1}
+                  heading="Registration Number"
+                  placeholder="Enter your Registration Number. Eg: 21BCE0001"
+                  optional=""
                 />
               </form>
               <Button
