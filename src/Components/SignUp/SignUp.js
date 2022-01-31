@@ -10,6 +10,7 @@ import Input from "../Inputs/Input";
 import Otp from "../Otp/Otp.js";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import Count from "react-countdown";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -20,6 +21,8 @@ function SignUp() {
   const [reg_no, setReg_no] = useState("");
   const [email, setEmail] = useState("");
   const [ph, setPh] = useState("");
+  const [loadicon, setLoading] = useState(false);
+  const [otp, setOtp] = React.useState("");
 
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -32,6 +35,18 @@ function SignUp() {
       },
     });
   };
+  const showSuccessSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "success",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
+
   const handleChange1 = (e) => {
     setName(e.target.value);
   };
@@ -46,7 +61,7 @@ function SignUp() {
   };
 
   const phoneValidation = (e) => {
-    const regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    const regex = /^\d{10}$/;
     if (regex.test(ph)) {
       return true;
     }
@@ -66,15 +81,55 @@ function SignUp() {
     }
     return false;
   };
+  function handleOtp() {
+    setLoading(true);
+
+    axios
+      .post(
+        "https://adg-recruitments.herokuapp.com/user/verifyOTP",
+        {
+          regno: reg_no,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.message) {
+          setLoading(false);
+
+          showSuccessSnack(res.data.message);
+          const token = res.data.Token;
+          localStorage.setItem("token", token);
+          const ref = res.data.refferal;
+          localStorage.setItem("ref", ref);
+          window.location.href = "/aboutyou";
+          setIsOtp(0);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+
+        console.log(err.response.data.message);
+        showErrorSnack(err.response.data.message);
+      });
+  }
   const handleClick = () => {
     if (name === "" || reg_no === "" || email === "" || ph === "") {
       showErrorSnack("Please fill all the fields");
     } else if (!emailValidation(email)) {
       showErrorSnack("Please enter a valid student email");
+    } else if (!phoneValidation(ph)) {
+      showErrorSnack("Please enter a valid phone number");
     } else {
+      setLoading(true);
+
       axios
         .post(
-          "https://damp-river-26250.herokuapp.com/user/signup",
+          "https://adg-recruitments.herokuapp.com/user/signup",
           {
             name: name,
             regno: reg_no,
@@ -89,14 +144,82 @@ function SignUp() {
         )
         .then((res) => {
           console.log(res);
-          if (res.data.success) {
+          if (res.data.message) {
+            setLoading(false);
+
+            showSuccessSnack("Email sent successfully");
             setIsOtp(1);
           }
         })
         .catch((err) => {
-          console.log(err);
+          setLoading(false);
+
+          showErrorSnack(err.response.data.message);
         });
     }
+  };
+
+  function handleresendOtp() {
+    setLoading(true);
+
+    axios
+      .put(
+        "https://adg-recruitments.herokuapp.com/user/resendOTP",
+        {
+          regno: reg_no,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.message) {
+          setLoading(false);
+
+          showSuccessSnack(res.data.message);
+          setIsOtp(1);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+
+        console.log(err.response.data.message);
+        showErrorSnack(err.response.data.message);
+      });
+  }
+
+  const Completionist = () => (
+    <span
+      className="resendOTP margin"
+      onClick={() => {
+        handleresendOtp();
+      }}
+    >
+      {" "}
+      Resend OTP{" "}
+    </span>
+  );
+  const renderer = ({ minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    }
+    const addZero = (num) => {
+      let time = num.toString();
+      if (time.length === 1) {
+        time = `0${time}`;
+      }
+      return time;
+    };
+    return (
+      <span className="resendOTP">
+        {addZero(minutes)}
+        <span className=" mx-2">:</span>
+        {addZero(seconds)}
+      </span>
+    );
   };
   return (
     <>
@@ -114,21 +237,24 @@ function SignUp() {
               </p>
               <form className="form">
                 <p className="otp_para">OTP</p>
-                <Otp />
+                <Otp val={otp} change={setOtp} />
                 <p className="bottom">
                   Didn’t recieve OTP?{" "}
-                  <span className="resendOTP" onClick={() => {}}>
-                    {" "}
-                    Resend OTP{" "}
-                  </span>
+                  <Count
+                    date={Date.now() + 120000}
+                    renderer={renderer}
+                    intervalDelay={0}
+                  />
                 </p>
               </form>
               <Button
                 class="btn1"
                 ClickFunction={() => {
-                  navigate("/aboutyou");
+                  handleOtp();
                 }}
                 heading="Verify OTP"
+                loading={loadicon}
+
               />
               <p
                 className="tosignup"
@@ -191,7 +317,9 @@ function SignUp() {
               <Button
                 class="btn1"
                 ClickFunction={handleClick}
-                heading="Create an Account"
+                  heading="Create an Account"
+                  loading={loadicon}
+
               />
               <p className="bottom">
                 Already Have an Account?{" "}

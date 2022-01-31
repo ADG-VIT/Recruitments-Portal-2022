@@ -53,6 +53,7 @@
   border: none;
   width: 100%;
   margin-bottom: 20px;
+  cursor: no-drop;
 }
 
 .btn2_disabled {
@@ -70,4 +71,7 @@
   text-decoration: none;
   width: 100%;
   margin-bottom: 20px;
+}
+.btn1_loading{
+  
 }

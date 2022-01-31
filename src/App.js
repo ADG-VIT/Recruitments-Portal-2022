@@ -8,6 +8,7 @@ import Login from "./Components/Login/Login";
 import AboutYou from "./Components/AboutYou/AboutYou";
 import Referral from "./Components/Referral/Referral";
 import DomainPage from "./Components/Domain/DomainPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/aboutyou" element={<AboutYou />} />
+          {/* <Route exact path="/aboutyou" element={<ProtectedRoute> <AboutYou /> </ProtectedRoute>} /> */}
+          <Route exact path="/aboutyou" element={<ProtectedRoute />} >
+            <Route exact path="/aboutyou" element={<AboutYou />} />
+          </Route>
+          {/* <Route path="/aboutyou" element={<AboutYou />} /> */}
           <Route path="/referral" element={<Referral />} />
           <Route path="/domain" element={<DomainPage />} />
         </Routes>

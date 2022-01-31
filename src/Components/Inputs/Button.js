@@ -4,9 +4,25 @@ import "./Button.css";
 
 function Button(props) {
   return (
-    <button className={props.class} onClick={() => props.ClickFunction()}>
-      {props.heading}
-    </button>
+    <>
+      {props.loading ? (
+        <button
+          className={props.class}
+          onClick={() => props.ClickFunction()}
+          disabled={props.disable}
+        >
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </button>
+      ) : (
+        <button
+          className={props.class}
+          onClick={() => props.ClickFunction()}
+          disabled={props.disable}
+        >
+          {props.heading}
+        </button>
+      )}
+    </>
   );
 }
 

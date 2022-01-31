@@ -17,8 +17,11 @@ function Login() {
   const [isOtp, setIsOtp] = useState(0);
   const [reg_no, setReg_no] = useState("");
   const { enqueueSnackbar } = useSnackbar();
-  const [otp, setOtp] = React.useState('');
-console.log(otp);
+  const [otp, setOtp] = React.useState("");
+  const [disable, setDisable] = React.useState(false);
+  const [loadicon, setLoading] = useState(false);
+  console.log(loadicon);
+  console.log(otp);
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(30);
   // console.log(minutes, seconds);
@@ -54,39 +57,46 @@ console.log(otp);
     }
     return false;
   };
-  function handleOtp(){
+  function handleOtp() {
+    setLoading(true);
     axios
-    .post(
-      "https://adg-recruitments.herokuapp.com/user/verifyOTP",
-      {
-        regno: reg_no,
-        otp: otp,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
+      .post(
+        "https://adg-recruitments.herokuapp.com/user/verifyOTP",
+        {
+          regno: reg_no,
+          otp: otp,
         },
-      }
-    )
-    .then((res) => {
-      console.log(res);
-      if (res.data.message) {
-        showSuccessSnack(res.data.message);
-        const token = res.data.Token;
-        localStorage.setItem("token", token);
-        setIsOtp(0);
-        window.location.href = "/aboutyou"
-      }
-    })
-    .catch((err) => {
-      console.log(err.response.data.message);
-      showErrorSnack(err.response.data.message);
-    });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log("this is res", res);
+        if (res.data.message) {
+          setLoading(false);
+          // setDisable(true);
+          showSuccessSnack(res.data.message);
+          const token = res.data.Token;
+          localStorage.setItem("token", token);
+          const ref = res.data.refferal;
+          localStorage.setItem("ref", ref);
+          window.location.href = "/referral";
+          setIsOtp(0);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.response.data.message);
+        showErrorSnack(err.response.data.message);
+      });
   }
   function handleClick() {
     if (reg_no === "") {
       showErrorSnack("Please fill all the fields");
     } else {
+      setLoading(true);
       axios
         .post(
           "https://adg-recruitments.herokuapp.com/user/login",
@@ -100,42 +110,61 @@ console.log(otp);
           }
         )
         .then((res) => {
-          console.log(res);
+          console.log("INSIDE LOGIN", res);
           if (res.data.message) {
+            localStorage.setItem("id", res.data.id);
+            setLoading(false);
+            // setDisable(true);
             showSuccessSnack(res.data.message);
             console.log(res.data.message);
             setIsOtp(1);
           }
         })
         .catch((err) => {
+          setLoading(false);
           console.log(err.response.data.message);
           showErrorSnack(err.response.data.message);
         });
     }
   }
 
-  // useEffect(() => {
-  //   let myInterval = setInterval(() => {
-  //     if (seconds > 0) {
-  //       setSeconds(seconds - 1);
-  //     }
-  //     if (seconds === 0) {
-  //       if (minutes === 0) {
-  //         clearInterval(myInterval);
-  //       } else {
-  //         setMinutes(minutes - 1);
-  //         setSeconds(59);
-  //       }
-  //     }
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(myInterval);
-  //   };
-  // }, [isOtp]);
+  function handleresendOtp() {
+    setLoading(true);
+    axios
+      .put(
+        "https://adg-recruitments.herokuapp.com/user/resendOTP",
+        {
+          regno: reg_no,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.message) {
+          setLoading(false);
+          showSuccessSnack(res.data.message);
+          setIsOtp(1);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.response.data.message);
+        showErrorSnack(err.response.data.message);
+      });
+  }
 
   const navigate = useNavigate();
   const Completionist = () => (
-    <span className="resendOTP" onClick={() => {}}>
+    <span
+      className="resendOTP margin"
+      onClick={() => {
+        handleresendOtp();
+      }}
+    >
       {" "}
       Resend OTP{" "}
     </span>
@@ -152,7 +181,7 @@ console.log(otp);
       return time;
     };
     return (
-      <span>
+      <span className="resendOTP">
         {addZero(minutes)}
         <span className=" mx-2">:</span>
         {addZero(seconds)}
@@ -187,18 +216,20 @@ console.log(otp);
                     </h1>
                   )} */}
                   <Count
-                    date={Date.now() + 5000}
+                    date={Date.now() + 20000}
                     renderer={renderer}
                     intervalDelay={0}
                   />
                 </p>
               </form>
               <Button
-                class="btn1"
+                class={disable ? "btn1_disabled" : "btn1"}
                 ClickFunction={() => {
                   handleOtp();
                 }}
                 heading="Verify OTP"
+                disable={disable}
+                loading={loadicon}
               />
               <p
                 className="tosignup"
@@ -231,11 +262,12 @@ console.log(otp);
                 />
               </form>
               <Button
-                class="btn1"
+                class={disable ? "btn1_disabled" : "btn1"}
                 ClickFunction={() => {
                   handleClick();
                 }}
                 heading="Login with OTP"
+                loading={loadicon}
               />
               <p className="bottom">
                 Don’t have an account?{" "}

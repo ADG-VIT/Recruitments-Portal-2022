@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AboutYou.css";
 import backImg from "../images/back_img.svg";
@@ -6,13 +6,40 @@ import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import TextArea from "../Inputs/TextArea";
 import Input from "../Inputs/Input";
+import { useSnackbar } from "notistack";
+import axios from "axios";
 
 function SignUp() {
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [profile, setprofile] = useState("");
   const [portfolio_link, setportfolio_link] = useState("");
   const [bio, setbio] = useState("");
+  const [loadicon, setLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
+  const showErrorSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "error",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
+  const showSuccessSnack = (message) => {
+    enqueueSnackbar(message, {
+      variant: "success",
+      preventDuplicate: true,
+      autoHideDuration: 2000,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  };
   const handleChange1 = (e) => {
     setprofile(e.target.value);
   };
@@ -22,6 +49,41 @@ function SignUp() {
   const handleChangebio = (e) => {
     setbio(e.target.value);
   };
+  function handleclick() {
+    if (bio === "" || profile === "" || portfolio_link === "") {
+      showErrorSnack("Please fill all the fields");
+    } else {
+      setLoading(true);
+      axios
+        .post(
+          "https://adg-recruitments.herokuapp.com/user/aboutyou",
+          {
+            bio: bio,
+            profile: profile,
+            portfolio_link: portfolio_link,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          if (res.data.message) {
+            setLoading(false);
+            showSuccessSnack(res.data.message);
+            window.href.location = "/referral";
+          }
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err.response.data.message);
+          showErrorSnack(err.response.data.message);
+        });
+    }
+  }
   return (
     <>
       <Navbar navbar={0} />
@@ -34,30 +96,36 @@ function SignUp() {
             <h1 className="heading">Tell us about yourself</h1>
             <p className="para">Almost Done! Help Us Know you Better</p>
             <form className="form">
-            <TextArea heading="Bio" optional = "" val={bio} change={handleChangebio} />
-                <Input
-                  setnull={setprofile}
-                  val={profile}
-                  change={handleChange1}
-                  heading="Github Profile"
-                  optional ="(Optional)"
-                  placeholder="Enter your Github Profile"
-                />
-                <Input
-                  setnull={setportfolio_link}
-                  val={portfolio_link}
-                  change={handleChange2}
-                  heading="Portfolio Link"
-                  optional ="(Optional)"
-                  placeholder="Enter your Portfolio Link"
-                />
+              <TextArea
+                heading="Bio"
+                optional=""
+                val={bio}
+                change={handleChangebio}
+              />
+              <Input
+                setnull={setprofile}
+                val={profile}
+                change={handleChange1}
+                heading="Github Profile"
+                optional="(Optional)"
+                placeholder="Enter your Github Profile"
+              />
+              <Input
+                setnull={setportfolio_link}
+                val={portfolio_link}
+                change={handleChange2}
+                heading="Portfolio Link"
+                optional="(Optional)"
+                placeholder="Enter your Portfolio Link"
+              />
             </form>
             <Button
               class="btn1"
               ClickFunction={() => {
-                navigate("/domain");
+                handleclick();
               }}
               heading="Get Started"
+              loading={loadicon}
             />
           </div>
         </div>

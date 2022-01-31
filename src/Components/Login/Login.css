@@ -4,7 +4,9 @@
   display: flex;
   justify-content: center;
 }
-
+.margin{
+  margin-left: 1rem;
+}
 .login_page .left {
   display: flex;
   flex-direction: column;
