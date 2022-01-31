@@ -12,11 +12,11 @@ function Referral() {
   const id = localStorage.getItem("id");
   const token = localStorage.getItem("token");
   const [disable, setDisable] = React.useState(false);
-  const [code, setCode] = React.useState(localStorage.getItem("ref"));
+  const [code, setCode] = React.useState("");
   const { enqueueSnackbar } = useSnackbar();
   const [copySuccess, setCopySuccess] = useState(false);
   const navigate = useNavigate();
-  
+
   const [loadicon, setLoading] = useState(false);
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -40,34 +40,30 @@ function Referral() {
       },
     });
   };
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios
-  //     .get(
-  //       `https://adg-recruitments.herokuapp.com/user/${id}/usereferral`,
-  //       {},
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     )
-  //     .then((res) => {
-  //       console.log(res);
-  //       if (res.data.message) {
-  //         setLoading(false);
-  //         setCode(res.data.message);
-  //         showSuccessSnack(res.data.message);
-  //         // window.href.location = "/domains";
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       setLoading(false);
-  //       console.log(err.response.data.message);
-  //       showErrorSnack(err.response.data.message);
-  //     });
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`https://adg-recruitments.herokuapp.com/user/${id}/usereferral`, {
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.message) {
+          setLoading(false);
+          setCode(res.data.message);
+          showSuccessSnack(res.data.message);
+          // window.href.location = "/domains";
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.response.data.message);
+        showErrorSnack(err.response.data.message);
+      });
+  }, []);
   const onCopyText = () => {
     showSuccessSnack("Your Referral Code has been copied!");
     setCopySuccess(true);
@@ -97,14 +93,12 @@ function Referral() {
               {code}
               <img src={copy} alt="copy" className="ml-2.5" />
             </div> */}
-          <div className="code">
-            <p>{code}</p>
-            <div
-              className="copy-code"
-            >
-              <CopySVG />
+            <div className="code">
+              <p>{code}</p>
+              <div className="copy-code">
+                <CopySVG />
+              </div>
             </div>
-          </div>
           </CopyToClipboard>
 
           <div className="body-end">
