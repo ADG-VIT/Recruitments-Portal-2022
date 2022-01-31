@@ -50,22 +50,22 @@ function SignUp() {
     setbio(e.target.value);
   };
   function handleclick() {
-    if (bio === "" || profile === "" || portfolio_link === "") {
+    if (bio === "") {
       showErrorSnack("Please fill all the fields");
     } else {
       setLoading(true);
       axios
         .post(
-          "https://adg-recruitments.herokuapp.com/user/aboutyou",
+          "https://adg-recruitments.herokuapp.com/user/bio",
           {
             bio: bio,
-            profile: profile,
-            portfolio_link: portfolio_link,
+            githubLink: profile,
+            portfolioLink: portfolio_link,
           },
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`
+              "auth-token": token,
             },
           }
         )
