@@ -16,7 +16,7 @@ function Referral() {
   const { enqueueSnackbar } = useSnackbar();
   const [copySuccess, setCopySuccess] = useState(false);
   const navigate = useNavigate();
-
+  console.log("code", code);
   const [loadicon, setLoading] = useState(false);
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -50,11 +50,12 @@ function Referral() {
         },
       })
       .then((res) => {
+        console.log(res.data.userDetails.referral);
         console.log(res);
-        if (res.data.message) {
+        if (res.data.userDetails) {
           setLoading(false);
-          setCode(res.data.message);
-          showSuccessSnack(res.data.message);
+          setCode(res.data.userDetails.referral);
+          showSuccessSnack("Referral Code generated");
           // window.href.location = "/domains";
         }
       })
@@ -112,15 +113,6 @@ function Referral() {
             </p>
           </div>
           {/* Button Component */}
-          <Button
-            class={disable ? "btn1_disabled" : "btn1"}
-            ClickFunction={() => {
-              navigate("/domain");
-            }}
-            heading="Continue"
-            disable={disable}
-            loading={loadicon}
-          />
         </div>
       </div>
     </div>

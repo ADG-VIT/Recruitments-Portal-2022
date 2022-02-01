@@ -20,8 +20,10 @@ function Login() {
   const [otp, setOtp] = React.useState("");
   const [disable, setDisable] = React.useState(false);
   const [loadicon, setLoading] = useState(false);
+  const [time, isTime] = useState(true);
   console.log(loadicon);
   console.log(otp);
+  console.log(time);
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(30);
   // console.log(minutes, seconds);
@@ -129,6 +131,7 @@ function Login() {
   }
 
   function handleresendOtp() {
+    isTime(false);
     setLoading(true);
     axios
       .put(
@@ -215,11 +218,23 @@ function Login() {
                       {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
                     </h1>
                   )} */}
-                  <Count
-                    date={Date.now() + 20000}
-                    renderer={renderer}
-                    intervalDelay={0}
-                  />
+                  {time ? (
+                    <Count
+                      date={Date.now() + 120000}
+                      renderer={renderer}
+                      intervalDelay={0}
+                    />
+                  ) : (
+                    <span
+                      className="resendOTP margin"
+                      onClick={() => {
+                        handleresendOtp();
+                      }}
+                    >
+                      {" "}
+                      Resend OTP{" "}
+                    </span>
+                  )}
                 </p>
               </form>
               <Button

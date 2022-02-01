@@ -74,7 +74,7 @@ function SignUp() {
           if (res.data.message) {
             setLoading(false);
             showSuccessSnack(res.data.message);
-            window.href.location = "/referral";
+            window.location.href = "/referral";
           }
         })
         .catch((err) => {
