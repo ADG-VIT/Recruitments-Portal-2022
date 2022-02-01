@@ -1,8 +1,12 @@
+textarea {
+  resize: none !important;
+}
+
 .input {
   width: 94%;
   background: #2b2b2b;
   border-radius: 16px;
-  height: 58px;
+  height: 100px;
   padding-left: 20px;
   padding-top: 20px;
   margin-bottom: 15px;
@@ -64,6 +68,7 @@ label {
 
 @media screen and (max-width: 620px) {
   .input {
+    height: 64px;
     font-size: 10px;
     line-height: 18px;
     margin-bottom: 8px;

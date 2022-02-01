@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
-import back_img from "../images/back_img.svg";
+import back_img from "../images/back_img_main.svg";
 import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import Input from "../Inputs/Input";
@@ -52,7 +52,7 @@ function SignUp() {
     setName(e.target.value);
   };
   const handleChange2 = (e) => {
-    setReg_no(e.target.value);
+    setReg_no(e.target.value.toUpperCase());
   };
   const handleChange3 = (e) => {
     setEmail(e.target.value);

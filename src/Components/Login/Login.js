@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import backImg from "../images/back_img.svg";
+import backImg from "../images/back_img_main.svg";
 import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import Input from "../Inputs/Input";
@@ -50,7 +50,7 @@ function Login() {
     });
   };
   const handleChange1 = (e) => {
-    setReg_no(e.target.value);
+    setReg_no(e.target.value.toUpperCase());
   };
   const regValidation = (e) => {
     const regex = /^21/;

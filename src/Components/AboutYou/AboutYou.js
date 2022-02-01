@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AboutYou.css";
-import backImg from "../images/back_img.svg";
+import backImg from "../images/back_img_main.svg";
 import Navbar from "../Navbar/Navbar";
 import Button from "../Inputs/Button";
 import TextArea from "../Inputs/TextArea";

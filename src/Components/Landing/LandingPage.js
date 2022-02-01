@@ -5,7 +5,7 @@ import "./LandingPage.css";
 import { useNavigate } from "react-router-dom";
 import Portal from "../images/Portal.svg";
 import Button from "../Inputs/Button";
-import back_img from "../images/back_img.svg";
+import back_img from "../images/back_img_main.svg";
 
 function LandingPage() {
 	const navigate = useNavigate();

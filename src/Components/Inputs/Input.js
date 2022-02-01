@@ -6,10 +6,6 @@ import cross from "../images/cross.svg";
 function Input(props) {
   const [show, setShow] = useState(false);
 
-  const handleClick = () => {
-    console.log("hi");
-  };
-
   return (
     <>
       <label htmlFor={props.heading}>{props.heading}<span className="optional">{props.optional}</span></label>
@@ -32,14 +28,14 @@ function Input(props) {
           placeholder={props.placeholder}
           required
         />
-        {show && (
+        {/* {show && (
           <img
             className="cross"
             alt="cross"
-            onClick={()=>{handleClick()}}
+            onClick={()=>{}}
             src={cross}
           />
-        )}
+        )} */}
       </div>
     </>
   );

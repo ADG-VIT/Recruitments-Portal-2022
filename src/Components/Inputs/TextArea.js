@@ -18,7 +18,7 @@ function TextArea(props) {
             setShow(false);
           }}
           className="textarea input" placeholder="Enter your text here..." onChange={(e) => { props.change(e) }}></textarea>
-          {show && (
+          {/* {show && (
             <img
               className="cross"
               alt="cross"
@@ -27,7 +27,7 @@ function TextArea(props) {
                 e.preventDefault();}}
               src={cross}
             />
-          )}
+          )} */}
         </div>
         </>
   )
