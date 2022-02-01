@@ -23,6 +23,7 @@ function SignUp() {
   const [ph, setPh] = useState("");
   const [loadicon, setLoading] = useState(false);
   const [otp, setOtp] = React.useState("");
+  const [time, isTime] = useState(true);
 
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -89,6 +90,7 @@ function SignUp() {
         "https://adg-recruitments.herokuapp.com/user/verifyOTP",
         {
           regno: reg_no,
+          otp: otp,
         },
         {
           headers: {
@@ -160,6 +162,8 @@ function SignUp() {
   };
 
   function handleresendOtp() {
+    isTime(false);
+
     setLoading(true);
 
     axios
@@ -240,11 +244,23 @@ function SignUp() {
                 <Otp val={otp} change={setOtp} />
                 <p className="bottom">
                   Didn’t recieve OTP?{" "}
-                  <Count
-                    date={Date.now() + 120000}
-                    renderer={renderer}
-                    intervalDelay={0}
-                  />
+                  {time ? (
+                    <Count
+                      date={Date.now() + 120000}
+                      renderer={renderer}
+                      intervalDelay={0}
+                    />
+                  ) : (
+                    <span
+                      className="resendOTP margin"
+                      onClick={() => {
+                        handleresendOtp();
+                      }}
+                    >
+                      {" "}
+                      Resend OTP{" "}
+                    </span>
+                  )}
                 </p>
               </form>
               <Button

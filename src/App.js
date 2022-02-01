@@ -24,8 +24,10 @@ function App() {
             <Route exact path="/aboutyou" element={<AboutYou />} />
           </Route>
           {/* <Route path="/aboutyou" element={<AboutYou />} /> */}
-          <Route path="/referral" element={<Referral />} />
-          <Route path="/domain" element={<DomainPage />} />
+          <Route exact path="/referral" element={<ProtectedRoute />} >
+            <Route exact path="/referral"  element={<Referral />} />
+          </Route>
+          {/* <Route path="/domain" element={<DomainPage />} /> */}
         </Routes>
       </div>
     </Router>
