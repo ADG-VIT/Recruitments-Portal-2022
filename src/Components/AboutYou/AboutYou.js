@@ -70,7 +70,6 @@ function SignUp() {
           }
         )
         .then((res) => {
-          console.log(res);
           if (res.data.message) {
             setLoading(false);
             showSuccessSnack(res.data.message);
@@ -79,7 +78,6 @@ function SignUp() {
         })
         .catch((err) => {
           setLoading(false);
-          console.log(err.response.data.message);
           showErrorSnack(err.response.data.message);
         });
     }
