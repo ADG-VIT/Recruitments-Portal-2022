@@ -21,12 +21,10 @@ function Login() {
   const [disable, setDisable] = React.useState(false);
   const [loadicon, setLoading] = useState(false);
   const [time, isTime] = useState(true);
-  console.log(loadicon);
-  console.log(otp);
-  console.log(time);
+
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(30);
-  // console.log(minutes, seconds);
+  // (minutes, seconds);
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
       variant: "error",
@@ -75,7 +73,6 @@ function Login() {
         }
       )
       .then((res) => {
-        console.log("this is res", res);
         if (res.data.message) {
           setLoading(false);
           // setDisable(true);
@@ -90,7 +87,6 @@ function Login() {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err.response.data.message);
         showErrorSnack(err.response.data.message);
       });
   }
@@ -112,19 +108,16 @@ function Login() {
           }
         )
         .then((res) => {
-          console.log("INSIDE LOGIN", res);
           if (res.data.message) {
             localStorage.setItem("id", res.data.id);
             setLoading(false);
             // setDisable(true);
             showSuccessSnack(res.data.message);
-            console.log(res.data.message);
             setIsOtp(1);
           }
         })
         .catch((err) => {
           setLoading(false);
-          console.log(err.response.data.message);
           showErrorSnack(err.response.data.message);
         });
     }
@@ -146,7 +139,6 @@ function Login() {
         }
       )
       .then((res) => {
-        console.log(res);
         if (res.data.message) {
           setLoading(false);
           showSuccessSnack(res.data.message);
@@ -155,7 +147,6 @@ function Login() {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err.response.data.message);
         showErrorSnack(err.response.data.message);
       });
   }

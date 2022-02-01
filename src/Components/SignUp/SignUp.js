@@ -99,7 +99,6 @@ function SignUp() {
         }
       )
       .then((res) => {
-        console.log(res);
         if (res.data.message) {
           setLoading(false);
 
@@ -115,7 +114,6 @@ function SignUp() {
       .catch((err) => {
         setLoading(false);
 
-        console.log(err.response.data.message);
         showErrorSnack(err.response.data.message);
       });
   }
@@ -145,7 +143,6 @@ function SignUp() {
           }
         )
         .then((res) => {
-          console.log(res);
           if (res.data.message) {
             setLoading(false);
 
@@ -179,7 +176,6 @@ function SignUp() {
         }
       )
       .then((res) => {
-        console.log(res);
         if (res.data.message) {
           setLoading(false);
 
@@ -190,7 +186,6 @@ function SignUp() {
       .catch((err) => {
         setLoading(false);
 
-        console.log(err.response.data.message);
         showErrorSnack(err.response.data.message);
       });
   }
@@ -270,7 +265,6 @@ function SignUp() {
                 }}
                 heading="Verify OTP"
                 loading={loadicon}
-
               />
               <p
                 className="tosignup"
@@ -333,9 +327,8 @@ function SignUp() {
               <Button
                 class="btn1"
                 ClickFunction={handleClick}
-                  heading="Create an Account"
-                  loading={loadicon}
-
+                heading="Create an Account"
+                loading={loadicon}
               />
               <p className="bottom">
                 Already Have an Account?{" "}

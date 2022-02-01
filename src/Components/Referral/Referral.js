@@ -16,7 +16,6 @@ function Referral() {
   const { enqueueSnackbar } = useSnackbar();
   const [copySuccess, setCopySuccess] = useState(false);
   const navigate = useNavigate();
-  console.log("code", code);
   const [loadicon, setLoading] = useState(false);
   const showErrorSnack = (message) => {
     enqueueSnackbar(message, {
@@ -50,8 +49,6 @@ function Referral() {
         },
       })
       .then((res) => {
-        console.log(res.data.userDetails.referral);
-        console.log(res);
         if (res.data.userDetails) {
           setLoading(false);
           setCode(res.data.userDetails.referral);
@@ -61,7 +58,6 @@ function Referral() {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err.response.data.message);
         showErrorSnack(err.response.data.message);
       });
   }, []);
