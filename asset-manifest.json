@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.4221e6a0.chunk.css",
-    "main.js": "/static/js/main.1c9e9056.chunk.js",
-    "main.js.map": "/static/js/main.1c9e9056.chunk.js.map",
+    "main.js": "/static/js/main.95bf69a5.chunk.js",
+    "main.js.map": "/static/js/main.95bf69a5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.294f5847.js",
     "runtime-main.js.map": "/static/js/runtime-main.294f5847.js.map",
-    "static/js/2.576eb656.chunk.js": "/static/js/2.576eb656.chunk.js",
-    "static/js/2.576eb656.chunk.js.map": "/static/js/2.576eb656.chunk.js.map",
+    "static/js/2.0ee3b93b.chunk.js": "/static/js/2.0ee3b93b.chunk.js",
+    "static/js/2.0ee3b93b.chunk.js.map": "/static/js/2.0ee3b93b.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.4221e6a0.chunk.css.map": "/static/css/main.4221e6a0.chunk.css.map",
-    "static/js/2.576eb656.chunk.js.LICENSE.txt": "/static/js/2.576eb656.chunk.js.LICENSE.txt",
+    "static/js/2.0ee3b93b.chunk.js.LICENSE.txt": "/static/js/2.0ee3b93b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/Gilroy-SemiBold.67802926.ttf",
     "static/media/Portal.2633b8bf.svg": "/static/media/Portal.2633b8bf.svg",
     "static/media/adg_logo.f4e6f3cb.svg": "/static/media/adg_logo.f4e6f3cb.svg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.294f5847.js",
-    "static/js/2.576eb656.chunk.js",
+    "static/js/2.0ee3b93b.chunk.js",
     "static/css/main.4221e6a0.chunk.css",
-    "static/js/main.1c9e9056.chunk.js"
+    "static/js/main.95bf69a5.chunk.js"
   ]
 }
