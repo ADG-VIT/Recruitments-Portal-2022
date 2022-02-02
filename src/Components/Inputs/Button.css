@@ -12,6 +12,9 @@
   width: 100%;
   margin-bottom: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn1:hover {
@@ -32,6 +35,9 @@
   border: solid #6b27f8 3px;
   text-decoration: none;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn2:hover {
@@ -54,6 +60,9 @@
   width: 100%;
   margin-bottom: 20px;
   cursor: no-drop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn2_disabled {
@@ -70,8 +79,8 @@
   padding: 3%;
   text-decoration: none;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
-}
-.btn1_loading{
-  
 }

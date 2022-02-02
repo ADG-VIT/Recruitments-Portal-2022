@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/referral" element={<ProtectedRoute />} >
             <Route exact path="/referral"  element={<Referral />} />
           </Route>
-          {/* <Route path="/domain" element={<DomainPage />} /> */}
+          <Route path="/domain" element={<DomainPage />} />
         </Routes>
       </div>
     </Router>

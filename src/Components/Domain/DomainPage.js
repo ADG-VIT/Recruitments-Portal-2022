@@ -4,11 +4,17 @@ import "./DomainPage.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Domain from "./Domain";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Button from "../Inputs/Button";
 
 function DomainPage() {
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = useState("Technical");
-
+  const [instructions,setInstructions] = useState(false);
+  const [isClicked,setIsClicked]  = useState(true);
+ 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -16,6 +22,60 @@ function DomainPage() {
   return (
     <>
       <Navbar navbar={1} />
+      {instructions ?
+      <div className="instructions_page">
+        <div className="middle">
+          <div className="left">
+            <h1 className="heading">{selectedValue}</h1>
+            <p className="para">12 ques . 10 min . Objective</p>
+          </div>
+          <div className="right">
+            <h1 className="heading">Instructions</h1>
+            <p className="para">Please read the Instructions carefully before starting the Quiz</p>
+            <div className = "instructions">
+              <div className="instruction">
+                <div className="bullet_point"></div>
+                <p className="main_instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lorem et neque ornare iaculis sit amet tempor diam.</p>
+              </div>
+              <div className="instruction">
+                <div className="bullet_point"></div>
+                <p className="main_instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lorem et neque ornare iaculis sit amet tempor diam.</p>
+              </div>
+              <div className="instruction">
+                <div className="bullet_point"></div>
+                <p className="main_instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lorem et neque ornare iaculis sit amet tempor diam.</p>
+              </div>
+              <div className="instruction">
+                <div className="bullet_point"></div>
+                <p className="main_instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lorem et neque ornare iaculis sit amet tempor diam.</p>
+              </div>
+            </div>
+            <p className="best_of_luck">Best luck for your test!</p>
+            <FormGroup>
+              <FormControlLabel className = "label_checkbox" control={<Checkbox 
+              onChange={()=>{setIsClicked((prevValue)=>{setIsClicked(!prevValue)})}}
+              style={{color : "white"}} />} label="I have read all the instructions" />
+            </FormGroup>
+            {isClicked ? 
+              <Button
+                class="btn1_disabled"
+                heading="Start Test"
+            />
+            : 
+            <Button
+                class="btn1"
+                ClickFunction={() => {
+                  navigate("/test_quiz");
+                }}
+                heading="Start Test"
+            />
+            }
+            <p className="bottom" onClick={()=>{setInstructions(false)}}>Back to Domain Selection</p>
+          </div>
+        </div>
+      </div>
+
+      : 
       <div className="domain_page">
         <div className="main_form">
           <h1 className="heading">Choose a Domain</h1>
@@ -40,16 +100,16 @@ function DomainPage() {
               para="5 Questions . 12 mins . Subjective Type"
             />
           </div>
-          <button
-            className="btn1"
-            onClick={() => {
-              navigate("/aboutyou");
-            }}
-          >
-            Start Test
-          </button>
+          <Button
+                class="btn1"
+                ClickFunction={() => {
+                  setInstructions(1);
+                }}
+                heading="Start Test"
+          />
         </div>
       </div>
+    }
     </>
   );
 }

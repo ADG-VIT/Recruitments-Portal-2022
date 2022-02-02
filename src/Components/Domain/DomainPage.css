@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 .domain_page {
   height: 100vh;
   width: 100vw;
@@ -76,4 +77,191 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Instructions Page */
+
+.instructions_page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions_page .middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  width: 70vw;
+  height: 78vh;
+  background-color: #1f1f1f;
+  border-radius: 28px;
+}
+.instructions_page .right {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 30px 0;
+}
+
+.instructions_page .left {
+  width: 30%;
+  height: 100%;
+  background-color: #280473;
+  border-radius: 28px 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions_page .right .instructions {
+  margin-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions_page .right .instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+}
+
+.instructions_page .left .heading {
+  font-family: GilroySemiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34.7706px;
+  line-height: 41px;
+  text-transform: capitalize;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.instructions_page .left .para {
+  font-family: GilroyMedium;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17.3853px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.instructions_page .right .heading {
+  font-family: GilroySemiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-align: center;
+  text-transform: capitalize;
+
+  /* Text/Primary */
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.instructions_page .right .para {
+  font-family: GilroyMedium;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: -0.482925px;
+  margin-bottom: 5px;
+
+  /* Text/Secondary */
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.instructions_page .right .main_instruction {
+  font-family: GilroySemiBold;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 127% */
+
+  display: flex;
+  align-items: center;
+
+  /* Text/Primary */
+
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 7px;
+}
+
+.bullet_point {
+  width: 1vw;
+  height: 1.5vh;
+  background-color: white;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.best_of_luck {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14.4877px;
+  line-height: 143%;
+  text-align: center;
+  letter-spacing: 0.297586px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 5px;
+}
+
+.instructions_page .btn1 {
+  margin-bottom: 5px !important;
+  width: 70% !important;
+  height: 54px !important;
+  font-size: 18px !important;
+}
+
+.instructions_page .btn1_disabled {
+  margin-bottom: 5px !important;
+  width: 70% !important;
+  height: 54px !important;
+  font-size: 18px !important;
+}
+.label_checkbox {
+  font-family: GilroySemiBold;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.724065px;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.instructions_page .bottom {
+  font-family: GilroySemiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  margin-top: 10px;
+  color: #864ff9;
+  cursor: pointer;
 }
