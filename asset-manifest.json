@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/recruitments/static/css/main.eafd2274.chunk.css",
-    "main.js": "/recruitments/static/js/main.b96c2a21.chunk.js",
-    "main.js.map": "/recruitments/static/js/main.b96c2a21.chunk.js.map",
-    "runtime-main.js": "/recruitments/static/js/runtime-main.83853d7d.js",
-    "runtime-main.js.map": "/recruitments/static/js/runtime-main.83853d7d.js.map",
-    "static/js/2.62d12d73.chunk.js": "/recruitments/static/js/2.62d12d73.chunk.js",
-    "static/js/2.62d12d73.chunk.js.map": "/recruitments/static/js/2.62d12d73.chunk.js.map",
-    "index.html": "/recruitments/index.html",
-    "static/css/main.eafd2274.chunk.css.map": "/recruitments/static/css/main.eafd2274.chunk.css.map",
-    "static/js/2.62d12d73.chunk.js.LICENSE.txt": "/recruitments/static/js/2.62d12d73.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/recruitments/static/media/Gilroy-SemiBold.67802926.ttf",
-    "static/media/Portal.cfb1af0b.svg": "/recruitments/static/media/Portal.cfb1af0b.svg",
-    "static/media/adg_logo.f1cc8635.svg": "/recruitments/static/media/adg_logo.f1cc8635.svg",
-    "static/media/back_img_main.e589d42b.svg": "/recruitments/static/media/back_img_main.e589d42b.svg",
-    "static/media/copy.f85840e5.svg": "/recruitments/static/media/copy.f85840e5.svg",
-    "static/media/cross.3c1393ce.svg": "/recruitments/static/media/cross.3c1393ce.svg",
-    "static/media/head.2fb61a1c.svg": "/recruitments/static/media/head.2fb61a1c.svg"
+    "main.css": "/Recruitments-Portal-2022/static/css/main.5f2f2dd0.chunk.css",
+    "main.js": "/Recruitments-Portal-2022/static/js/main.b96c2a21.chunk.js",
+    "main.js.map": "/Recruitments-Portal-2022/static/js/main.b96c2a21.chunk.js.map",
+    "runtime-main.js": "/Recruitments-Portal-2022/static/js/runtime-main.50e556b8.js",
+    "runtime-main.js.map": "/Recruitments-Portal-2022/static/js/runtime-main.50e556b8.js.map",
+    "static/js/2.62d12d73.chunk.js": "/Recruitments-Portal-2022/static/js/2.62d12d73.chunk.js",
+    "static/js/2.62d12d73.chunk.js.map": "/Recruitments-Portal-2022/static/js/2.62d12d73.chunk.js.map",
+    "index.html": "/Recruitments-Portal-2022/index.html",
+    "static/css/main.5f2f2dd0.chunk.css.map": "/Recruitments-Portal-2022/static/css/main.5f2f2dd0.chunk.css.map",
+    "static/js/2.62d12d73.chunk.js.LICENSE.txt": "/Recruitments-Portal-2022/static/js/2.62d12d73.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Recruitments-Portal-2022/static/media/Gilroy-SemiBold.67802926.ttf",
+    "static/media/Portal.cfb1af0b.svg": "/Recruitments-Portal-2022/static/media/Portal.cfb1af0b.svg",
+    "static/media/adg_logo.f1cc8635.svg": "/Recruitments-Portal-2022/static/media/adg_logo.f1cc8635.svg",
+    "static/media/back_img_main.e589d42b.svg": "/Recruitments-Portal-2022/static/media/back_img_main.e589d42b.svg",
+    "static/media/copy.f85840e5.svg": "/Recruitments-Portal-2022/static/media/copy.f85840e5.svg",
+    "static/media/cross.3c1393ce.svg": "/Recruitments-Portal-2022/static/media/cross.3c1393ce.svg",
+    "static/media/head.2fb61a1c.svg": "/Recruitments-Portal-2022/static/media/head.2fb61a1c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.83853d7d.js",
+    "static/js/runtime-main.50e556b8.js",
     "static/js/2.62d12d73.chunk.js",
-    "static/css/main.eafd2274.chunk.css",
+    "static/css/main.5f2f2dd0.chunk.css",
     "static/js/main.b96c2a21.chunk.js"
   ]
 }
