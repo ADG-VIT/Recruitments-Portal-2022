@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.3b5ba3a2.chunk.css",
-    "main.js": "/static/js/main.63119648.chunk.js",
-    "main.js.map": "/static/js/main.63119648.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.294f5847.js",
-    "runtime-main.js.map": "/static/js/runtime-main.294f5847.js.map",
-    "static/js/2.0ee3b93b.chunk.js": "/static/js/2.0ee3b93b.chunk.js",
-    "static/js/2.0ee3b93b.chunk.js.map": "/static/js/2.0ee3b93b.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.3b5ba3a2.chunk.css.map": "/static/css/main.3b5ba3a2.chunk.css.map",
-    "static/js/2.0ee3b93b.chunk.js.LICENSE.txt": "/static/js/2.0ee3b93b.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/Gilroy-SemiBold.67802926.ttf",
-    "static/media/Portal.2633b8bf.svg": "/static/media/Portal.2633b8bf.svg",
-    "static/media/adg_logo.f4e6f3cb.svg": "/static/media/adg_logo.f4e6f3cb.svg",
-    "static/media/back_img_main.0f606426.svg": "/static/media/back_img_main.0f606426.svg",
-    "static/media/copy.d30d873e.svg": "/static/media/copy.d30d873e.svg",
-    "static/media/cross.e1f9ed5f.svg": "/static/media/cross.e1f9ed5f.svg",
-    "static/media/head.ef733d86.svg": "/static/media/head.ef733d86.svg"
+    "main.css": "/recruitments/static/css/main.eafd2274.chunk.css",
+    "main.js": "/recruitments/static/js/main.b96c2a21.chunk.js",
+    "main.js.map": "/recruitments/static/js/main.b96c2a21.chunk.js.map",
+    "runtime-main.js": "/recruitments/static/js/runtime-main.83853d7d.js",
+    "runtime-main.js.map": "/recruitments/static/js/runtime-main.83853d7d.js.map",
+    "static/js/2.62d12d73.chunk.js": "/recruitments/static/js/2.62d12d73.chunk.js",
+    "static/js/2.62d12d73.chunk.js.map": "/recruitments/static/js/2.62d12d73.chunk.js.map",
+    "index.html": "/recruitments/index.html",
+    "static/css/main.eafd2274.chunk.css.map": "/recruitments/static/css/main.eafd2274.chunk.css.map",
+    "static/js/2.62d12d73.chunk.js.LICENSE.txt": "/recruitments/static/js/2.62d12d73.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/recruitments/static/media/Gilroy-SemiBold.67802926.ttf",
+    "static/media/Portal.cfb1af0b.svg": "/recruitments/static/media/Portal.cfb1af0b.svg",
+    "static/media/adg_logo.f1cc8635.svg": "/recruitments/static/media/adg_logo.f1cc8635.svg",
+    "static/media/back_img_main.e589d42b.svg": "/recruitments/static/media/back_img_main.e589d42b.svg",
+    "static/media/copy.f85840e5.svg": "/recruitments/static/media/copy.f85840e5.svg",
+    "static/media/cross.3c1393ce.svg": "/recruitments/static/media/cross.3c1393ce.svg",
+    "static/media/head.2fb61a1c.svg": "/recruitments/static/media/head.2fb61a1c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.294f5847.js",
-    "static/js/2.0ee3b93b.chunk.js",
-    "static/css/main.3b5ba3a2.chunk.css",
-    "static/js/main.63119648.chunk.js"
+    "static/js/runtime-main.83853d7d.js",
+    "static/js/2.62d12d73.chunk.js",
+    "static/css/main.eafd2274.chunk.css",
+    "static/js/main.b96c2a21.chunk.js"
   ]
 }
