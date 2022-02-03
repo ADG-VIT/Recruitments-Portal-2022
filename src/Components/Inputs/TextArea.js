@@ -20,7 +20,7 @@ function TextArea(props) {
             setShow(false);
           }}
           className="textarea input"
-          placeholder="Enter your text here..."
+          placeholder={props.placeholder}
           onChange={(e) => {
             props.change(e);
           }}

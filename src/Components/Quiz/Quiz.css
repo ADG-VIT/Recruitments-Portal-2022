@@ -176,12 +176,42 @@
 }
 
 .quiz_page .btn1 {
+  font-size: 20px !important;
   margin: 0 !important;
   width: 13vw !important;
   height: 50px !important;
 }
 
 .quiz_page .btn2 {
+  font-size: 20px !important;
   width: 13vw !important;
   height: 50px !important;
+}
+
+.quiz_page .btn2_disabled {
+  font-size: 20px !important;
+  margin: 0 !important;
+  width: 13vw !important;
+  height: 50px !important;
+}
+
+.quiz_page textarea {
+  width: 30vw !important;
+  height: 45vh !important;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.quiz_page .right .subjective_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz_page .right .objective_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

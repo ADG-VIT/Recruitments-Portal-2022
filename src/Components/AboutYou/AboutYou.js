@@ -99,6 +99,7 @@ function SignUp() {
                 optional=""
                 val={bio}
                 change={handleChangebio}
+                placeholder = "Write something about yourself"
               />
               <Input
                 setnull={setprofile}
