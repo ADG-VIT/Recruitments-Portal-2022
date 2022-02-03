@@ -4,12 +4,13 @@ import Button from "../Inputs/Button";
 import { useNavigate } from "react-router-dom";
 import "./Quiz.css"
 import TextArea from "../Inputs/TextArea";
+import Options from "../Options/Options.js";
 
 function Quiz() {
     const navigate = useNavigate();
     const [currentQuestion,setCurrentQuestion] = useState(1);
     const [totalQuestions,setTotalQuestions] = useState(4);
-    const [data,setData] = useState(
+    const [data,setData] = useState(        
         [{
             question_heading : "Find the Output",
             question_para : "Two sum Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",  
@@ -59,6 +60,14 @@ function Quiz() {
     const handleChangeAnswer_subjective = (event) => {
         setAnswer_subjective(event.target.value);
     }
+    const [options,setOptions] = useState(
+        {
+            option1 : false,
+            option2 : false,
+            option3 : false,
+            option4 : false,        
+        }
+    );
 
     useEffect(() => {
         if (seconds >= 0) {
@@ -145,8 +154,75 @@ function Quiz() {
                     :
                     <div className="objective_div">
                         <h1 className='heading'>Options:</h1>
-                        <div className="Options">
-
+                        <div className="options">
+                            <Options 
+                                class={options.option1 ? "selectedbtn" : "unselectedbtn"}
+                                heading={data[currentQuestion-1].option1}
+                                disabled=""
+                                ClickFunction={()=>{
+                                    setOptions((prevValue)=>{
+                                        return(
+                                            {
+                                                option1 : !prevValue.option1,
+                                                option2 : false,
+                                                option3 : false,
+                                                option4 : false,
+                                            }
+                                        );
+                                    })
+                                    }}
+                            />
+                            <Options 
+                                class={options.option2 ? "selectedbtn" : "unselectedbtn"}
+                                heading={data[currentQuestion-1].option2}
+                                disabled=""
+                                ClickFunction={(prevValue)=>{
+                                    setOptions((prevValue)=>{
+                                        return(
+                                            {...prevValue,
+                                                option1 : false,
+                                                option2 : !prevValue.option2,
+                                                option3 : false,
+                                                option4 : false,
+                                            }
+                                        );
+                                    })
+                                    }}
+                            />
+                            <Options 
+                                class={options.option3 ? "selectedbtn" : "unselectedbtn"}
+                                heading={data[currentQuestion-1].option3}
+                                disabled=""
+                                ClickFunction={(prevValue)=>{
+                                    setOptions((prevValue)=>{
+                                        return(
+                                            {...prevValue,
+                                                option1 : false,
+                                                option2 : false,
+                                                option3 : !prevValue.option3,
+                                                option4 : false,
+                                            }
+                                        );
+                                    })
+                                    }}
+                            />
+                            <Options 
+                                class={options.option4 ? "selectedbtn" : "unselectedbtn"}
+                                heading={data[currentQuestion-1].option4}
+                                disabled=""
+                                ClickFunction={(prevValue)=>{
+                                    setOptions((prevValue)=>{
+                                        return(
+                                            {...prevValue,
+                                                option1 : false,
+                                                option2 : false,
+                                                option3 : false,
+                                                option4 : !prevValue.option4,
+                                            }
+                                        );
+                                    })
+                                    }}
+                            />
                         </div>
                         <div className="test_buttons">
                             {currentQuestion===1 ? 

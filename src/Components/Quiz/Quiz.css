@@ -173,6 +173,7 @@
   justify-content: space-between;
   align-items: center;
   width: 35vw;
+  margin-top: 2vh;
 }
 
 .quiz_page .btn1 {
@@ -213,5 +214,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.quiz_page .selectedbtn {
+  width: 35vw !important;
+  margin-bottom: 3vh;
+  height: 65px;
+}
+
+.quiz_page .unselectedbtn {
+  width: 35vw !important;
+  margin-bottom: 3vh;
+  height: 65px;
+}
+
+.quiz_page .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-top: 5vh !important;
 }
