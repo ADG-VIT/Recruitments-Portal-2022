@@ -8,13 +8,19 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "../Inputs/Button";
+import Input from "../Inputs/Input";
 
 function DomainPage() {
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = useState("Technical");
   const [instructions,setInstructions] = useState(false);
   const [isClicked,setIsClicked]  = useState(true);
- 
+  const [refferal,setRefferal]  = useState("");
+
+  const handleChange1 = (event) => {
+    setRefferal(event.target.value);
+  };
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -106,6 +112,22 @@ function DomainPage() {
                   setInstructions(1);
                 }}
                 heading="Start Test"
+          />
+        </div>
+        <div className="sub_form">
+        <Input
+          setnull={setRefferal}
+          val={refferal}
+          change={handleChange1}
+          placeholder="Enter Referral Code for Extra Time"
+          optional=""
+          />
+         <Button
+                class="btn1"
+                ClickFunction={() => {
+                  
+                }}
+                heading="Apply Code"
           />
         </div>
       </div>

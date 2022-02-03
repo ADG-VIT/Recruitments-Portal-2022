@@ -10,45 +10,23 @@
 
 .domain_page .main_form {
   margin-top: 70px;
-  width: 30vw;
-  height: 52%;
+  width: 28vw;
+  height: 54%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 45px 30px 45px 30px;
+  padding: 45px 0 30px 0;
   background: #1f1f1f;
   border-radius: 25px;
-}
-
-.domain_page .btn1 {
-  -webkit-border-radius: 12;
-  -moz-border-radius: 12;
-  border-radius: 12px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #6b27f8;
-  padding: 3%;
-  text-decoration: none;
-  border: none;
-  width: 100%;
-  margin: 0;
-}
-
-.domain_page .btn1:hover {
-  background: #4506c8;
-  text-decoration: none;
 }
 
 .domain_page .heading {
   font-family: GilroySemiBold;
   font-style: normal;
   font-weight: 600;
-  font-size: 26.7857px;
+  font-size: 22px;
   line-height: 32px;
-  /* identical to box height */
-
   text-align: center;
 
   color: #ffffff;
@@ -59,7 +37,7 @@
   font-family: GilroyMedium;
   font-style: normal;
   font-weight: normal;
-  font-size: 17.8571px;
+  font-size: 14px;
   line-height: 21px;
   /* identical to box height */
 
@@ -72,11 +50,46 @@
 }
 
 .domain_page .domains {
-  margin: 30px 0 10px 0;
+  margin: 15px 0 15px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.domain_page .btn1 {
+  font-size: 16px !important;
+}
+
+.domain_page .sub_form {
+  margin-top: 30px;
+  width: 38vw;
+  height: 94px;
+  background: #1f1f1f;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.domain_page .sub_form input {
+  width: 20vw !important;
+  margin-bottom: 0 !important;
+  margin-right: 0 !important;
+}
+
+.domain_page .sub_form .btn1 {
+  width: 10vw !important;
+  margin-bottom: 0 !important;
+  margin-left: 30px !important;
+  font-size: 16px !important;
+}
+
+.domain_page .sub_form .enclosing_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
 }
 
 /* Instructions Page */
@@ -140,7 +153,7 @@
   font-family: GilroySemiBold;
   font-style: normal;
   font-weight: 600;
-  font-size: 34.7706px;
+  font-size: 28px;
   line-height: 41px;
   text-transform: capitalize;
 
@@ -151,7 +164,7 @@
   font-family: GilroyMedium;
   font-style: normal;
   font-weight: normal;
-  font-size: 17.3853px;
+  font-size: 14px;
   line-height: 20px;
   text-transform: capitalize;
   color: rgba(255, 255, 255, 0.7);
@@ -232,14 +245,14 @@
   margin-bottom: 5px !important;
   width: 70% !important;
   height: 54px !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
 
 .instructions_page .btn1_disabled {
   margin-bottom: 5px !important;
   width: 70% !important;
   height: 54px !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
 .label_checkbox {
   font-family: GilroySemiBold;
