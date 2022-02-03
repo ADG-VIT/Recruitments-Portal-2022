@@ -9,12 +9,12 @@ import AboutYou from "./Components/AboutYou/AboutYou";
 import Referral from "./Components/Referral/Referral";
 import DomainPage from "./Components/Domain/DomainPage";
 import ProtectedRoute from "./ProtectedRoute";
+import Quiz from "./Components/Quiz/Quiz.js"
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/SignUp" element={<SignUp />} />
@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/referral"  element={<Referral />} />
           </Route>
           <Route path="/domain" element={<DomainPage />} />
+          <Route path="/test_quiz" element={<Quiz />} />
         </Routes>
       </div>
     </Router>
