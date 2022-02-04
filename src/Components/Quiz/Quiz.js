@@ -59,14 +59,49 @@ function Quiz() {
 
     const handleChangeAnswer_subjective = (event) => {
         setAnswer_subjective(event.target.value);
+        setOptions((prevValue)=>{
+            return(
+                
+                prevValue.map((item,index)=>{
+                    if(index===(currentQuestion-1))
+                    {
+                        return(
+                            {
+                                answer_subjective : event.target.value
+                            }
+
+                        )
+                    }
+                    else 
+                    {
+                        return (item)
+                    }
+                })
+            );
+        })
     }
     const [options,setOptions] = useState(
-        {
-            option1 : false,
-            option2 : false,
-            option3 : false,
-            option4 : false,        
-        }
+        data.map((item)=>{
+            if(item.type==="objective")
+            {
+                return(
+                    {
+                        option1 : false,
+                        option2 : false,
+                        option3 : false,
+                        option4 : false,
+                    }
+                )
+            }
+            else 
+            {
+                return(
+                    {
+                        answer_subjective : ""
+                    }
+                )
+            }
+    })
     );
 
     useEffect(() => {
@@ -156,69 +191,121 @@ function Quiz() {
                         <h1 className='heading'>Options:</h1>
                         <div className="options">
                             <Options 
-                                class={options.option1 ? "selectedbtn" : "unselectedbtn"}
+                                class={options[currentQuestion-1].option1 ? "selectedbtn" : "unselectedbtn"}
                                 heading={data[currentQuestion-1].option1}
                                 disabled=""
                                 ClickFunction={()=>{
                                     setOptions((prevValue)=>{
                                         return(
-                                            {
-                                                option1 : !prevValue.option1,
-                                                option2 : false,
-                                                option3 : false,
-                                                option4 : false,
-                                            }
+                                            
+                                            prevValue.map((item,index)=>{
+                                                if(index===(currentQuestion-1))
+                                                {
+                                                    return(
+                                                        {
+                                                            option1 : !item.option1,
+                                                            option2 : false,
+                                                            option3 : false,
+                                                            option4 : false
+                                                        }
+      
+                                                    )
+                                                }
+                                                else 
+                                                {
+                                                    return (item)
+                                                }
+                                            })
                                         );
                                     })
                                     }}
                             />
                             <Options 
-                                class={options.option2 ? "selectedbtn" : "unselectedbtn"}
+                                class={options[currentQuestion-1].option2 ? "selectedbtn" : "unselectedbtn"}
                                 heading={data[currentQuestion-1].option2}
                                 disabled=""
-                                ClickFunction={(prevValue)=>{
+                                ClickFunction={()=>{
                                     setOptions((prevValue)=>{
                                         return(
-                                            {...prevValue,
-                                                option1 : false,
-                                                option2 : !prevValue.option2,
-                                                option3 : false,
-                                                option4 : false,
-                                            }
+                                            
+                                            prevValue.map((item,index)=>{
+                                                if(index===(currentQuestion-1))
+                                                {
+                                                    return(
+                                                        {
+                                                            option1 : false,
+                                                            option2 : !item.option2,
+                                                            option3 : false,
+                                                            option4 : false
+                                                        }
+      
+                                                    )
+                                                }
+                                                else 
+                                                {
+                                                    return (item)
+                                                }
+                                            })
                                         );
                                     })
                                     }}
                             />
                             <Options 
-                                class={options.option3 ? "selectedbtn" : "unselectedbtn"}
+                                class={options[currentQuestion-1].option3 ? "selectedbtn" : "unselectedbtn"}
                                 heading={data[currentQuestion-1].option3}
                                 disabled=""
-                                ClickFunction={(prevValue)=>{
+                                ClickFunction={()=>{
                                     setOptions((prevValue)=>{
                                         return(
-                                            {...prevValue,
-                                                option1 : false,
-                                                option2 : false,
-                                                option3 : !prevValue.option3,
-                                                option4 : false,
-                                            }
+                                            
+                                            prevValue.map((item,index)=>{
+                                                if(index===(currentQuestion-1))
+                                                {
+                                                    return(
+                                                        {
+                                                            option1 : false,
+                                                            option2 : false,
+                                                            option3 : !item.option3,
+                                                            option4 : false
+                                                        }
+      
+                                                    )
+                                                }
+                                                else 
+                                                {
+                                                    return (item)
+                                                }
+                                            })
                                         );
                                     })
                                     }}
                             />
                             <Options 
-                                class={options.option4 ? "selectedbtn" : "unselectedbtn"}
+                                class={options[currentQuestion-1].option4 ? "selectedbtn" : "unselectedbtn"}
                                 heading={data[currentQuestion-1].option4}
                                 disabled=""
-                                ClickFunction={(prevValue)=>{
+                                ClickFunction={()=>{
                                     setOptions((prevValue)=>{
                                         return(
-                                            {...prevValue,
-                                                option1 : false,
-                                                option2 : false,
-                                                option3 : false,
-                                                option4 : !prevValue.option4,
-                                            }
+                                            
+                                            prevValue.map((item,index)=>{
+                                                if(index===(currentQuestion-1))
+                                                {
+                                                    return(
+                                                        {
+                                                            option1 : false,
+                                                            option2 : false,
+                                                            option3 : false,
+                                                            option4 : !item.option3
+                                                        }
+      
+                                                    )
+                                                }
+                                                else 
+                                                {
+                                                    return (item)
+                                                }
+                                            })
                                         );
                                     })
                                     }}
